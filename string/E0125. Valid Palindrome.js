@@ -3,6 +3,7 @@
  * @return {boolean}
  */
 //笨办法 聪明人都用正则一波带走
+/*
 var isPalindrome = function (s) {
   if (!s) {
     return true;
@@ -31,6 +32,21 @@ var isPalindrome = function (s) {
     }
     l++;
     r--;
+  }
+  return true;
+};*/
+//正则
+var isPalindrome = function (s) {
+  if (!s) {
+    return true;
+  }
+  let regex = /[^A-Za-z0-9]/g;
+  s = s.replace(regex, "").toLowerCase();
+  var l = s.length - 1;
+  for (var i = 0; i < (l + 1) / 2; i++) {
+    if (s[i] != s[l - i]) {
+      return false;
+    }
   }
   return true;
 };
